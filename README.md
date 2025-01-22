@@ -1,2 +1,2 @@
 # Meteor Wallet
- Primeiro projeto usando o Meteor 
+ Primeiro projeto usando o Meteor e o Galaxy
