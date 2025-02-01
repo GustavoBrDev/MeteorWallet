@@ -1,0 +1,85 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/mongo": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/local_collection_driver.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/collection.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/asynchronous_cursor.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/doc_fetcher.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/mongo_common.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/mongo_connection.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/mongo_driver.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/mongo_utils.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/oplog_observe_driver.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/collection_utils.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/methods_async.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/methods_index.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/methods_replication.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/mongo/2.1.0/web.browser/collection/methods_sync.js"
+      ],
+      "meteor/reactive-var": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/reactive-var/1.0.13/web.browser/reactive-var.js"
+      ],
+      "meteor/es5-shim": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/es5-shim/4.8.1/web.browser/client.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/es5-shim/4.8.1/web.browser/console.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/es5-shim/4.8.1/web.browser/cordova.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/es5-shim/4.8.1/web.browser/export_globals.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/es5-shim/4.8.1/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/ecmascript/0.16.10/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/shell-server/0.6.1/web.browser/main.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/shell-server/0.6.1/web.browser/shell-server.js"
+      ],
+      "meteor/hot-module-replacement": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.4/web.browser/hot-api.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.4/web.browser/client.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/hot-module-replacement/0.5.4/web.browser/server.js"
+      ],
+      "meteor/react-meteor-data": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/react-meteor-data/3.0.3/web.browser/index.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/react-meteor-data/3.0.3/web.browser/suspense/index.js"
+      ],
+      "meteor/aldeed:collection2": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/collection2.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/dynamic.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/lib.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/main.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/static.js"
+      ],
+      "meteor/matb33:collection-hooks": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/client.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/collection-hooks.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/find.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/findone.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/insert.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/remove.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/server.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/update.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/upsert.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/users-compat.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/utils.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/wrappers.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}
