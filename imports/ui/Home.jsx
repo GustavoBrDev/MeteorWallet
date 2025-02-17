@@ -3,10 +3,13 @@ import { Wallet } from "./Wallet";
 import { ContactForm } from "./ContactForm";
 import { ContactList } from "./ContactList";
 
-export const Home = () => (
-    <>
-        <Wallet/>
-        <ContactForm />
-        <ContactList />
-    </>
-)
+export const Home = () => {
+    return (
+        <>
+            <Wallet/>
+            <ContactForm />
+            <ContactList />
+        </>
+
+    )
+}
