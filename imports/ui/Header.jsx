@@ -1,12 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 //import { RoutePaths } from './RoutePaths';
-import { useLoggedUser } from 'meteor/quave:logged-user-react';
+//import { useLoggedUser } from 'meteor/quave:logged-user-react';
 
 export const Header = () => {
-  const navigate = useNavigate();
-  const { loggedUser, isLoadingLoggedUser } = useLoggedUser();
+  /*const navigate = useNavigate();
+  const { loggedUser, isLoadingLoggedUser } = useLoggedUser();*/
   return (
     <header className="bg-indigo-600">
       <nav className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8" aria-label="Top">
@@ -22,7 +22,7 @@ export const Header = () => {
               </a>
             </div>
             <div>
-              { !isLoadingLoggedUser && !loggedUser && (
+              { /*!isLoadingLoggedUser && !loggedUser*/ true && (
                 <button
                   className="font-bold text-white"
                   //onClick={() => navigate(RoutePaths.SIGN_UP)}
@@ -30,7 +30,7 @@ export const Header = () => {
                   Login
                 </button>
               )}
-              { ! isLoadingLoggedUser && loggedUser && (
+              { /*! isLoadingLoggedUser && loggedUser*/ false && (
                 <button
                   className="font-bold text-white"
                   onClick={() => Meteor.logout()}

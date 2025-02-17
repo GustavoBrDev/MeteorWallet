@@ -51,11 +51,11 @@
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/react-meteor-data/3.0.3/web.browser/suspense/index.js"
       ],
       "meteor/aldeed:collection2": [
-        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/collection2.js",
-        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/dynamic.js",
-        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/lib.js",
-        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/main.js",
-        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.0.4/web.browser/static.js"
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.1.0/web.browser/collection2.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.1.0/web.browser/dynamic.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.1.0/web.browser/lib.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.1.0/web.browser/main.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/aldeed_collection2/4.1.0/web.browser/static.js"
       ],
       "meteor/matb33:collection-hooks": [
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/client.js",

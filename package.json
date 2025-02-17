@@ -16,10 +16,11 @@
     "meteor-node-stubs": "^1.2.12",
     "postcss": "^8.5.1",
     "postcss-load-config": "^6.0.1",
-    "pretier": "^11.0.0",
+    "prettier": "^3.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.1.5",
+    "react-router": "^7.1.5",
+    "react-router-dom": "^6.29.0",
     "simpl-schema": "^3.4.6",
     "tailwindcss": "^3.4.17"
   },
