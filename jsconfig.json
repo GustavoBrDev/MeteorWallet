@@ -70,6 +70,9 @@
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/users-compat.js",
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/utils.js",
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/matb33_collection-hooks/2.0.0/web.browser/wrappers.js"
+      ],
+      "meteor/quave:logged-user-react": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/quave_logged-user-react/1.1.0/web.browser/logged-user-react.js"
       ]
     }
   },
