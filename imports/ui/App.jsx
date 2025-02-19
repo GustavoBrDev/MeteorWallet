@@ -3,7 +3,7 @@ import { Header } from './Header';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from './Home';
 import { NotFound } from './NotFound';
-import { SignUp } from './SignUp';
+import { Acess } from './Acess';
 import { RoutePaths } from './RoutePaths';
 
 export const App = () => (
@@ -15,7 +15,7 @@ export const App = () => (
         <div className="max-w-4xl mx-auto p-2">
           <Routes>
             <Route path= {RoutePaths.HOME} element={<Home/>} />
-            <Route path= {RoutePaths.SIGN_UP} element={<SignUp/>} />
+            <Route path= {RoutePaths.ACESS} element={<Acess/>} />
             <Route path="*" element={<NotFound/>} />
           </Routes>
         </div>
