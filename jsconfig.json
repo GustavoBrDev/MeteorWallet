@@ -78,6 +78,10 @@
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/accounts-password/3.0.3/web.browser/password_client.js",
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/accounts-password/3.0.3/web.browser/email_templates.js",
         "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/accounts-password/3.0.3/web.browser/password_server.js"
+      ],
+      "meteor/quave:alert-react-tailwind": [
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/quave_alert-react-tailwind/4.0.0/web.browser/alert-react-tailwind.js",
+        "C:\\Users\\Geral\\AppData\\Local/.meteor/packages/quave_alert-react-tailwind/4.0.0/web.browser/Transition.js"
       ]
     }
   },

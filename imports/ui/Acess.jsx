@@ -112,6 +112,17 @@ export const Acess = () => {
               : "Não possui uma conta? Crie uma aqui"}
           </a>
         </div>
+
+        { ! isSignUp && (
+          <div className="py-3">
+            <a
+              className="cursor-pointer text-indigo-800"
+              onClick={() => navigate(RoutePaths.FORGOT_PASSWORD)}
+            >
+              Esqueceu sua senha?
+            </a>
+          </div>
+        )}
       </form>
     </div>
   );
