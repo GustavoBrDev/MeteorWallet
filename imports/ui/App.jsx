@@ -10,6 +10,8 @@ export const App = () => (
     <AlertProvider>
     <div>
       <Header />
+      < // @ts-ignore
+      Alert/>
       <div className="min-h-full">
         <div className="max-w-4xl mx-auto p-2">
           <Router></Router>

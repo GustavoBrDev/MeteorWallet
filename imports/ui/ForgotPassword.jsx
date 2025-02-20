@@ -6,27 +6,33 @@ import { useNavigate } from 'react-router-dom';
 import { ErrorAlert } from './components/ErrorAlert';
 
 export const ForgotPassword = () => {
+  // @ts-ignore
   const { openAlert } = useAlert();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
 
   const forgotPassword = (e) => {
     e.preventDefault();
-    Accounts.forgotPassword({ email }, (errorResponse) => {
-      if (errorResponse) {
-        console.error(
-          'Erro ao enviar o link de redefinação da senha',
-          errorResponse
-        );
-        // @ts-ignore
-        setError(errorResponse.reason);
-        return;
-      }
-      setEmail('');
-      setError(null);
-      openAlert('Você deve receber um email em breve!');
-    });
+    
+    if ( !email || email.length === 0 ) {
+      setError("Preencha o campo de email");
+      return;
+    } else {
+      Accounts.forgotPassword({ email }, (errorResponse) => {
+        if (errorResponse) {
+          console.error(
+            'Erro ao enviar o link de redefinação da senha',
+            errorResponse
+          );
+          setError(errorResponse.message);
+          return;
+        }
+        setEmail('');
+        setError(null);
+        openAlert('Você deve receber um email em breve!');
+      });
+    }
   };
 
   return (
@@ -35,7 +41,7 @@ export const ForgotPassword = () => {
         Esqueci a Senha
       </h3>
       {error && <ErrorAlert message={error. // @ts-ignore
-      reason || 'Erro desconhecido'} />}
+      message || 'Erro desconhecido'} />}
       <form className="mt-6 flex flex-col">
         <div className="flex flex-col space-y-4">
           <div className="">
