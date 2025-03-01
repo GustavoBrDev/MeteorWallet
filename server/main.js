@@ -8,6 +8,7 @@ import '../imports/api/Wallets/WalletsMethods';
 import '../imports/api/Wallets/WalletsCollection';
 import '../imports/api/Wallets/WalletsPublications';
 import '../infra/CustomError';
+// import '../infra/Accounts';
 
 Meteor.startup( () => {
 

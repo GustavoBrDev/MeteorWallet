@@ -25,3 +25,5 @@ matb33:collection-hooks
 quave:logged-user-react
 accounts-password
 quave:alert-react-tailwind
+accounts-base
+quave:email-postmark

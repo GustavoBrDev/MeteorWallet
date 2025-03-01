@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { useAlert } from 'meteor/quave:alert-react-tailwind';
 import { Accounts } from 'meteor/accounts-base';
@@ -6,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { ErrorAlert } from './components/ErrorAlert';
 
 export const ForgotPassword = () => {
-  // @ts-ignore
   const { openAlert } = useAlert();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ export const ForgotPassword = () => {
   const forgotPassword = (e) => {
     e.preventDefault();
     
-    if ( !email || email.length === 0 ) {
+    if (!email || email.length === 0) {
       setError("Preencha o campo de email");
       return;
     } else {
@@ -25,11 +25,16 @@ export const ForgotPassword = () => {
             'Erro ao enviar o link de redefinação da senha',
             errorResponse
           );
-          setError(errorResponse.message);
+          // @ts-ignore
+          if (errorResponse.error === 'user-not-found') {
+            setError("Não existe uma conta associada a este email.");
+          } else {
+            setError(errorResponse.message || 'Erro desconhecido');
+          }
           return;
         }
         setEmail('');
-        setError(null);
+        setError("");
         openAlert('Você deve receber um email em breve!');
       });
     }

@@ -7,18 +7,20 @@ import { useLoggedUser } from 'meteor/quave:logged-user-react';
 export const Header = () => {
   const navigate = useNavigate();
   const { loggedUser, isLoadingLoggedUser } = useLoggedUser();
+  console.log('loggedUser', loggedUser);
+  console.log('isLoadingLoggedUser', isLoadingLoggedUser);
   return (
     <header className="bg-indigo-600">
-      <nav className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex w-full items-center justify-between border-b border-indigo-500 py-6 lg:border-none">
-          <div className="flex grow items-center justify-between">
+      <nav className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8" aria-label="Top">
+        <div className="flex items-center justify-between w-full py-6 border-b border-indigo-500 lg:border-none">
+          <div className="flex items-center justify-between grow">
             <div>
               <a
                 className="cursor-pointer"
                 onClick={() => navigate(RoutePaths.HOME)}
               >
                 <span className="sr-only">Meteor Wallet</span>
-                <img className="h-10 w-auto" src="/images/logo.png" alt="" />
+                <img className="w-auto h-10" src="/images/logo.png" alt="" />
               </a>
             </div>
             <div>

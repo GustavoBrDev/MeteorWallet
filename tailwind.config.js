@@ -8,7 +8,6 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  
   safelist: [
     'bg-white',
     'duration-100',
@@ -80,5 +79,5 @@ module.exports = {
     'w-6',
     'w-full',
     'z-10',
-  ],
+  ]
 }

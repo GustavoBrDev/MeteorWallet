@@ -1,0 +1,8 @@
+{
+    "packages": {
+      "quave:email-postmark": {
+        "from": "gustavo_stinghen@estudante.sesisenai.org.br",
+        "apiToken": "13cec080-f635-452e-a483-ddf70d82477f"
+      }
+    }
+  }
