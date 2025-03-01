@@ -5,6 +5,12 @@ import { check } from 'meteor/check';
 Meteor.methods({
     'contacts.insert' ( { nome, email, imageUrl, walletId } ) {
 
+        const userId = this;
+
+        if ( ! userId ) {
+            throw new Meteor.Error('not-authorized', 'Nao autorizado');
+        }
+
         check ( nome, String );
         check ( email, String );
         check ( imageUrl, String );
@@ -18,7 +24,7 @@ Meteor.methods({
             throw new Meteor.Error('wallet-required', 'O campo de ID carteira é obrigatório.');
         }
 
-        return ContactsCollection.insertAsync({ nome, email, imageUrl, walletId, createdAt: new Date() });
+        return ContactsCollection.insertAsync({ nome, email, imageUrl, walletId, createdAt: new Date(), userId });
     },
 
     'contacts.remove' ( { contactId } ) {

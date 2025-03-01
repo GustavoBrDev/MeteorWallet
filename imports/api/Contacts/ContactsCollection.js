@@ -18,6 +18,12 @@ const ContactsSchema = new SimpleSchema({
         return new Date();
       }
     }
+  }, 
+  userId: {
+    type: String,
+  },
+  walletId: {
+    type: String,
   }
 });
 

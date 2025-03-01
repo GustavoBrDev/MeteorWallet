@@ -7,24 +7,32 @@ Meteor.methods ({
 
     'transactions.insert' ( { data } ) {
 
+        const userId = this;
+
+        if ( ! userId ) {
+            throw new Meteor.Error('not-authorized', 'Nao autorizado');
+        }
+
         const schema = new SimpleSchema({
             isTransfering: { type: Boolean },
             sourceWalletId: { type: String },
-            destinationWalletId: { type: String, optional:  ! data.isTransfering },
-            amount: { type: Number, min: 1 }
+            destinationContactId: { type: String, optional:  ! data.isTransfering },
+            amount: { type: Number, min: 1 },
+            userId: { type: String },
         });
 
         const dataClean = schema.clean(data);
         schema.validate(dataClean);
 
-        const { isTransfering, sourceWalletId, destinationWalletId, amount } = dataClean;
+        const { isTransfering, sourceWalletId, destinationContactId, amount } = dataClean;
 
 
         return TransactionsCollection.insertAsync({ 
             type: isTransfering ? TRANSFER_TYPE : ADD_TYPE, 
             sourceWalletId, 
-            destinationWalletId: isTransfering ? destinationWalletId : null,
+            destinationContactId: isTransfering ? destinationContactId : null,
             amount, 
+            userId,
             createdAt: new Date() });
     },
 

@@ -1,6 +1,7 @@
 import { Accounts } from "meteor/accounts-base";
 import { Meteor } from "meteor/meteor";
 import { RoutePaths } from "/imports/ui/RoutePaths";
+import { WalletsCollection } from "/imports/api/Wallets/WalletsCollection";
 
 Accounts.emailTemplates.resetPassword = {
         subject() {
@@ -16,3 +17,10 @@ Accounts.emailTemplates.resetPassword = {
 
 Accounts.urls.resetPassword = ( token ) => 
     Meteor.absoluteUrl(`${RoutePaths.RESET_PASSWORD.substring(1)}/${token}`);
+
+Accounts.onCreateUser((options, user) => {
+  
+  WalletsCollection.insertAsync ({ balance: 0, currency: 'BRL', createdAt: new Date(), userId: user._id });
+  return user;
+  
+});

@@ -6,9 +6,23 @@ Meteor.publish("contacts", () => {
 });
 
 Meteor.publish("contacts.active", () => {
-  return ContactsCollection.find({ archived: { $ne: true } });
+
+  const userId = this;
+
+  if ( ! userId ) {
+    throw new Meteor.Error('not-authorized', 'Nao autorizado');
+  }
+
+  return ContactsCollection.find({ userId, archived: { $ne: true } });
 });
 
 Meteor.publish("contacts.inactive", () => {
-  return ContactsCollection.find({ archived: { $eq: true} });
+  
+  const userId = this;
+
+  if ( ! userId ) {
+    throw new Meteor.Error('not-authorized', 'Nao autorizado');
+  }
+
+  return ContactsCollection.find({ userId, archived: { $eq: true} });
 });

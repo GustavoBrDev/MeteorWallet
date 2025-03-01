@@ -12,16 +12,4 @@ import '../infra/CustomError';
 
 Meteor.startup( () => {
 
-    const initializeWallet = async () => {
-        try {
-          if (!(await Meteor.callAsync('wallets.count'))) {
-            await Meteor.callAsync('wallets.insert', 1000, 'BRL');
-          }
-        } catch (error) {
-          console.error('Error initializing wallet:', error);
-        }
-      };
-
-      initializeWallet();
-
 });

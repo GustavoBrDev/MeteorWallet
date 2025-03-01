@@ -17,6 +17,9 @@ const walletsSchema = new SimpleSchema({
     },
     createdAt: {
         type: Date,
+    },
+    userId : {
+        type: String,
     }
 });
 
