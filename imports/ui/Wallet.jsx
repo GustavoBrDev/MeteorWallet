@@ -5,9 +5,10 @@ import { ContactsCollection } from '../api/Contacts/ContactsCollection';
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
 import { Loading } from './components/Loading';
 import { WalletsCollection } from '../api/Wallets/WalletsCollection';
-
+import { useLoggedUser } from 'meteor/quave:logged-user-react';
 
 export const Wallet = () => {
+  const { loggedUser } = useLoggedUser();
   const [open, setOpen] = useState(false);
   const [isTransfering, setIsTransfering] = useState(false);
   const [amount, setAmount] = React.useState(0);
@@ -54,9 +55,12 @@ export const Wallet = () => {
       <div className="flex my-10 font-sans shadow-md">
         <form className="flex-auto p-6">
           <div className="flex flex-wrap">
-            <div className="flex-none w-full text-sm font-medium text-gray-500">
-              Conta Principal
+            <div className="flex-none w-full mt-2 text-sm font-medium text-gray-500">
+              Email:
             </div>
+            <h1 className="flex-auto text-lg font-semibold text-gray-700">
+              {loggedUser?.email}
+            </h1>
             <div className="flex-none w-full mt-2 text-sm font-medium text-gray-500">
               ID da Carteira:
             </div>

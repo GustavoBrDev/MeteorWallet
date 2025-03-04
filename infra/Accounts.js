@@ -18,9 +18,18 @@ Accounts.emailTemplates.resetPassword = {
 Accounts.urls.resetPassword = ( token ) => 
     Meteor.absoluteUrl(`${RoutePaths.RESET_PASSWORD.substring(1)}/${token}`);
 
+// @ts-ignore
 Accounts.onCreateUser((options, user) => {
   
+  const customizedUser = {...user};
   WalletsCollection.insertAsync ({ balance: 0, currency: 'BRL', createdAt: new Date(), userId: user._id });
-  return user;
-  
+  customizedUser['email'] = user.emails[0].address;
+  return customizedUser;
+});
+
+// @ts-ignore
+Accounts.setDefaultPublishFields({
+  // @ts-ignore
+  ...Accounts.defaultPublishFields.projection,
+  email: 1
 });
