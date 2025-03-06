@@ -6,14 +6,23 @@ import { Acess } from "./Acess";
 import { RoutePaths } from "./RoutePaths";
 import { ForgotPassword } from "./ForgotPassword";
 import { ResetPassword } from "./ResetPassword";
+import { LoggedUserOnly } from "./components/LoggedUserOnly";
+import { AnomynousOnly } from "./components/AnomynousOnly";
 
 export const Router = () => {
     return (
         <Routes>
-            <Route path={RoutePaths.HOME} element={<Home />} />
-            <Route path={RoutePaths.ACESS} element={<Acess />} />
-            <Route path={RoutePaths.FORGOT_PASSWORD} element={<ForgotPassword/>} />
-            <Route path={`${RoutePaths.RESET_PASSWORD}/:token`} element={<ResetPassword/>} />
+            <Route path={RoutePaths.HOME} element={
+                <LoggedUserOnly><Home /></LoggedUserOnly>
+            } />
+            <Route path={RoutePaths.ACESS} element={
+            <AnomynousOnly><Acess /></AnomynousOnly>} />
+            <Route path={RoutePaths.FORGOT_PASSWORD} element={
+                <AnomynousOnly><ForgotPassword /></AnomynousOnly>
+            } />
+            <Route path={`${RoutePaths.RESET_PASSWORD}/:token`} element={
+                <AnomynousOnly><ResetPassword /></AnomynousOnly>
+            } />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
