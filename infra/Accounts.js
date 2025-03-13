@@ -20,16 +20,25 @@ Accounts.urls.resetPassword = ( token ) =>
 
 // @ts-ignore
 Accounts.onCreateUser((options, user) => {
-  
   const customizedUser = {...user};
-  WalletsCollection.insertAsync ({ balance: 0, currency: 'BRL', createdAt: new Date(), userId: user._id });
   customizedUser['email'] = user.emails[0].address;
+  
+  // Schedule wallet creation after user is created
+  Meteor.defer(() => {
+    WalletsCollection.insertAsync({ 
+      balance: 0, 
+      currency: 'BRL', 
+      createdAt: new Date(), 
+      userId: user._id 
+    });
+  });
+  
   return customizedUser;
 });
 
 // @ts-ignore
 Accounts.setDefaultPublishFields({
   // @ts-ignore
-  ...Accounts.defaultPublishFields.projection,
+  ...(Accounts.defaultPublishFields?.projection || {}),
   email: 1
 });

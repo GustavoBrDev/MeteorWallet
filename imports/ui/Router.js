@@ -8,6 +8,8 @@ import { ForgotPassword } from "./ForgotPassword";
 import { ResetPassword } from "./ResetPassword";
 import { LoggedUserOnly } from "./components/LoggedUserOnly";
 import { AnomynousOnly } from "./components/AnomynousOnly";
+import { RemoveTransaction } from "./RemoveTransaction";
+import { AdminOnly } from "./components/AdminOnly";
 
 export const Router = () => {
     return (
@@ -22,6 +24,9 @@ export const Router = () => {
             } />
             <Route path={`${RoutePaths.RESET_PASSWORD}/:token`} element={
                 <AnomynousOnly><ResetPassword /></AnomynousOnly>
+            } />
+            <Route path={RoutePaths.REMOVE_TRANSACTION} element={
+                <AdminOnly><RemoveTransaction /></AdminOnly>
             } />
             <Route path="*" element={<NotFound />} />
         </Routes>

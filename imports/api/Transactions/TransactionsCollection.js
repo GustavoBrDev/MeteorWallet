@@ -52,12 +52,7 @@ TransactionsCollection.before.insert ( async function ( userId, transactionDocum
         throw new Meteor.Error('wallet-not-found', 'Carteira de origem não encontrada.');
       }
   
-      if (sourceWallet.balance < transactionDocument.amount) {
-        throw new Meteor.Error('not-enough-balance', 'Saldo insuficiente.');
-      }
-  
-      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: -transactionDocument.amount } });
-      await WalletsCollection.updateAsync(transactionDocument.destinationWalletId, { $inc: { balance: transactionDocument.amount } });
+      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: transactionDocument.amount } });
     }
   
     if (transactionDocument.type === ADD_TYPE) {
@@ -67,9 +62,17 @@ TransactionsCollection.before.insert ( async function ( userId, transactionDocum
         throw new Meteor.Error('wallet-not-found', 'Carteira não encontrada.');
       }
   
-      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: transactionDocument.amount } });
+      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: -transactionDocument.amount } });
     }
   
+});
+
+// @ts-ignore
+TransactionsCollection.before.remove (function (userId, doc) {
+  if (doc.type === TRANSFER_TYPE) {
+    WalletsCollection.update(doc.sourceWalletId, { $inc: { balance: doc.amount } });
+    WalletsCollection.update(doc.destinationWalletId, { $inc: { balance: -doc.amount } });
+  }
 });
 
 export const TRANSFER_TYPE = "TRANSFERÊNCIA";

@@ -2,6 +2,9 @@ import { TransactionsCollection, TRANSFER_TYPE, ADD_TYPE } from "./TransactionsC
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import SimpleSchema  from 'simpl-schema';
+import { WalletRoles } from "/infra/WalletRoles";
+// @ts-ignore
+import { Roles } from 'meteor/roles';
 
 Meteor.methods ({
 
@@ -37,7 +40,18 @@ Meteor.methods ({
     },
 
     'transactions.remove' ( { transactionId } ) {
+
+        const {userId} = this;
+
+        if ( ! userId ) {
+            throw new Meteor.Error('not-authorized', 'Nao autorizado');
+        }
+
         check ( transactionId, String );
+
+        if ( ! Roles.userIsInRoleAsync(userId, WalletRoles.ADMIN) ){
+            throw new Meteor.Error('not-authorized', 'Nao autorizado');
+        }
         return TransactionsCollection.removeAsync(transactionId);
     }
 
