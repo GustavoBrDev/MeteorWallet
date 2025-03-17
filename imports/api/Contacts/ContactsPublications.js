@@ -1,28 +1,28 @@
 import { Meteor } from "meteor/meteor";
 import { ContactsCollection } from "./ContactsCollection";
 
-Meteor.publish("contacts", () => {
+Meteor.publish("contacts", function() {
   return ContactsCollection.find();
 });
 
-Meteor.publish("contacts.active", () => {
-
-  const userId = this;
-
-  if ( ! userId ) {
-    throw new Meteor.Error('not-authorized', 'Nao autorizado');
+Meteor.publish("contacts.active", function() {
+  if (!this.userId) {
+    return this.ready();
   }
 
-  return ContactsCollection.find({ userId, archived: { $ne: true } });
+  return ContactsCollection.find({ 
+    userId: this.userId, 
+    archived: { $ne: true } 
+  });
 });
 
-Meteor.publish("contacts.inactive", () => {
-  
-  const userId = this;
-
-  if ( ! userId ) {
-    throw new Meteor.Error('not-authorized', 'Nao autorizado');
+Meteor.publish("contacts.inactive", function() {
+  if (!this.userId) {
+    return this.ready();
   }
 
-  return ContactsCollection.find({ userId, archived: { $eq: true} });
+  return ContactsCollection.find({ 
+    userId: this.userId, 
+    archived: { $eq: true } 
+  });
 });

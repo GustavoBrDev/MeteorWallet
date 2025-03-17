@@ -62,7 +62,7 @@ TransactionsCollection.before.insert ( async function ( userId, transactionDocum
         throw new Meteor.Error('wallet-not-found', 'Carteira não encontrada.');
       }
   
-      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: -transactionDocument.amount } });
+      await WalletsCollection.updateAsync(transactionDocument.sourceWalletId, { $inc: { balance: transactionDocument.amount } });
     }
   
 });

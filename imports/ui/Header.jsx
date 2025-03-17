@@ -7,8 +7,6 @@ import { useLoggedUser } from 'meteor/quave:logged-user-react';
 export const Header = () => {
   const navigate = useNavigate();
   const { loggedUser, isLoadingLoggedUser } = useLoggedUser();
-  console.log('loggedUser', loggedUser);
-  console.log('isLoadingLoggedUser', isLoadingLoggedUser);
   return (
     <header className="bg-indigo-600">
       <nav className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8" aria-label="Top">

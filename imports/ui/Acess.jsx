@@ -12,39 +12,51 @@ export const Acess = () => {
   const [error, setError] = useState("");
   const [ isSignUp, setIsSignUp ] = useState(true);
 
-  const signUp = (e) => {
+  const signUp = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError('Por favor, preencha todos os campos');
       return;
     }
-    Accounts.createUser({ email, password }, (errorResponse) => {
-      if (errorResponse) {
-        console.error('Error creating user', errorResponse);
-        // @ts-ignore
-        setError(errorResponse.reason);
-        return;
-      }
+    try {
+      await new Promise((resolve, reject) => {
+        Accounts.createUser({ email, password }, (errorResponse) => {
+          if (errorResponse) {
+            reject(errorResponse);
+          } else {
+            resolve();
+          }
+        });
+      });
       navigate(RoutePaths.HOME);
-    });
+    } catch (error) {
+      console.error('Erro ao criar usuário', error);
+      setError(error.reason || "Erro desconhecido");
+    }
   };
   
-  const signIn = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError('Por favor, preencha todos os campos');
       return;
     }
-    Meteor.loginWithPassword(email, password, (errorResponse) => {
-      if (errorResponse) {
-        console.error('Erro ao realizar login', errorResponse);
-        // @ts-ignore
-        setError(errorResponse.reason);
-        return;
-      }
+    try {
+      await new Promise((resolve, reject) => {
+        Meteor.loginWithPassword(email, password, (errorResponse) => {
+          if (errorResponse) {
+            reject(errorResponse);
+          } else {
+            resolve();
+          }
+        });
+      });
       navigate(RoutePaths.HOME);
-    });
-  };
+    } catch (error) {
+      console.error('Erro ao realizar login', error);
+      setError(error.reason || "Erro desconhecido");
+    }
+  };  
 
   return (
     <div className="flex flex-col items-center">

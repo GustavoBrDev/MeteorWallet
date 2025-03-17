@@ -34,7 +34,8 @@ export const Wallet = () => {
   };
 
   const addTransaction = async () => {
-    await Meteor.callAsync ( 'transactions.insert', { data : { isTransfering, sourceWalletId: wallet._id, destinationContactId: destinationContact['walletId'] || "", amount } }).then( () => {
+    console.log ( isTransfering );
+    await Meteor.callAsync ( 'transactions.insert', { isTransfering, sourceWalletId: wallet._id, destinationContactId: destinationContact['walletId'] || "", amount } ).then( () => {
         setOpen(false);
     }).catch( ( errorResponse ) => {
 
@@ -137,6 +138,7 @@ export const Wallet = () => {
               type="button"
               className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
               onClick={() => {
+                console.log ( isTransfering );
                 addTransaction ();
                 resetForm ();
               }}

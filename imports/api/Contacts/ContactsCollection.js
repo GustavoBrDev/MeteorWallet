@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema';
 export const ContactsCollection = new Mongo.Collection('contacts');
 
 const ContactsSchema = new SimpleSchema({
-  name: {
+  nome: {
     type: String,
   },
   email: {
